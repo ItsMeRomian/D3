@@ -7,4 +7,4 @@ include_once('class/DB.class.php');
 include_once('class/User.class.php');
 include_once('class/Post.class.php');
 
-$db = new db('10.115.255.52', 'dg3', 'password', 'dg3');
+$db = new db('34.76.21.36', 'dg3', 'password', 'dg3');
