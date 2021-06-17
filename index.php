@@ -1,11 +1,10 @@
 <?php
 include_once('inc/inc.php');
-include_once('templates/post.template.php');
 $post = new Post($db);
 $posts = $post->getPostFromFriends($_SESSION['auth']['id']);
 ?>
 
-<h1>Welkom, <?= $_SESSION['auth']['username'] ?></h1>
+<h1>Welkom, <a href="profile?id=<?= $_SESSION['auth']['id'] ?>"><?= $_SESSION['auth']['username'] ?></a></h1>
 
 <p>Posts van je vrienden:</p>
 <?php

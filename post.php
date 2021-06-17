@@ -1,11 +1,17 @@
 <?php
 include_once('inc/inc.php');
-$user = new User($_GET['id'], $db);
+
+//Get the post
+$post = $posts->getPost($_GET['id']);
+
+//Get the userobject of the user who posted
+$user = new User($post['userId'], $db);
 $userObject = $user->getUserObject();
-$post = $db->query('SELECT * FROM posts WHERE id = ?', $userObject['id'])->fetchArray();
+
+//Get the likes
 $likes = $db->query('SELECT * FROM likes WHERE post = ?', $post['id'])->numRows();
 ?>
-<h1><?=$post['name']?></h1>
-<h2>By <a href="profile.php?id=<?=$account['id']?>"><?=$account['username']?></a></h2>
-<p><?=$post['body']?></p>
-<p><?=$likes?> Likes</p>
+<h1><?= $post['name'] ?></h1>
+<h2>By <a href="profile.php?id=<?= $userObject['id'] ?>"><?= $userObject['username'] ?></a></h2>
+<p><?= $post['body'] ?></p>
+<p><?= $likes ?> Likes</p>

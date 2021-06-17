@@ -17,10 +17,14 @@ if (empty($_SESSION['auth'])) {
         echo "<span style='color: red'>Je bent niet ingelogd</span>";
     }
 }
+include_once('templates/post.template.php');
 
 include_once('class/DB.class.php');
-include_once('class/User.class.php');
-include_once('class/Post.class.php');
-include_once('class/Auth.class.php');
-
 $db = new db('34.76.21.36', 'dg3', 'password', 'dg3');
+
+include_once('class/User.class.php');
+
+include_once('class/Post.class.php');
+$posts = new Post($db);
+
+include_once('class/Auth.class.php');

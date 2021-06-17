@@ -13,8 +13,11 @@ class PostTemplate
 ?>
 
         <div style="border: solid;">
-            <h2>Post #<?= $this->values['id'] ?></h2>
-            <table>
+            <h2><a href="post?id=<?= $this->values['id'] ?>"><?= $this->values['name'] ?></a></h2>
+            <p>"<?= $this->values['body'] ?>"</p>
+            <p>Post door: <a href="profile?id=<?= $this->values['user']['id'] ?>"><?= $this->values['user']['username'] ?></a></p>
+            <p>Gepost op: <?= $this->values['timePosted'] ?></p>
+            <!-- <table>
                 <tr>
                     <td><?= $this->values['id'] ?></td>
                     <td><?= $this->values['userId'] ?></td>
@@ -23,7 +26,7 @@ class PostTemplate
                     <td><?= $this->values['image'] ?></td>
                     <td><?= $this->values['timePosted'] ?></td>
                 </tr>
-            </table>
+            </table> -->
         </div>
 <?php
         $content = ob_get_contents();
