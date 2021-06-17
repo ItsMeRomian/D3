@@ -1,12 +1,13 @@
 <?php
 include_once('inc/inc.php');
-$account = $db->query('SELECT * FROM users WHERE id = ?', $_GET['id'])->fetchArray();
+$user = new User($_GET['id'], $db);
+$account = $user->getUserObject();
 
-$friendsAmount = $db->query('SELECT * FROM friends WHERE user = ?', $account['id'])->numRows();
-$friends = $db->query('SELECT users.*, friends.`user`, friends.friend FROM users , friends WHERE friends.`user` = ? AND friends.friend = users.id ', $account['id'])->fetchAll();
+$friendsAmount = $user->getFriendsAmount();
+$friends = $user->getFriends();
 
-$followersAmount = $db->query('SELECT * FROM friends WHERE friend = ?', $account['id'])->numRows();
-$followers = $db->query('SELECT users.id, users.username, users.profilepicture, users.`password`, users.background, users.font, users.lastLogin, users.timeCreated FROM friends , users WHERE friends.friend = ? AND friends.user = users.id', $account['id'])->fetchAll();
+$followersAmount = $user->getFollowersAmount();
+$followers = $user->getFollowers()
 ?>
 <h1><?=$account['username']?></h1>
 

@@ -1,7 +1,8 @@
 <?php
 include_once('inc/inc.php');
-$post = $db->query('SELECT * FROM posts WHERE id = ?', $_GET['id'])->fetchArray();
-$account = $db->query('SELECT * FROM users WHERE id = ?', $post['userId'])->fetchArray();
+$user = new User($_GET['id'], $db);
+$userObject = $user->getUserObject();
+$post = $db->query('SELECT * FROM posts WHERE id = ?', $userObject['id'])->fetchArray();
 $likes = $db->query('SELECT * FROM likes WHERE post = ?', $post['id'])->numRows();
 ?>
 <h1><?=$post['name']?></h1>

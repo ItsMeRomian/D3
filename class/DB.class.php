@@ -1,6 +1,6 @@
 <?php
 //https://codeshack.io/super-fast-php-mysql-database-class/
-class db {
+class DB {
 
     protected $connection;
 	protected $query;
