@@ -1,8 +1,10 @@
 <?php
-
 include('inc/inc.php');
-class User {
-    
+
+//User class
+class User
+{
+
     private  $userObject;
     private  $db;
 
@@ -11,19 +13,24 @@ class User {
         $this->db = $db;
         $this->userObject = $this->db->query('SELECT * FROM users WHERE id = ?', $id)->fetchArray();
     }
-    function getUserObject() {
+    function getUserObject()
+    {
         return $this->userObject;
     }
-    function getFriends() {
+    function getFriends()
+    {
         return $this->db->query('SELECT users.*, friends.`user`, friends.friend FROM users , friends WHERE friends.`user` = ? AND friends.friend = users.id ', $this->userObject['id'])->fetchAll();
     }
-    function getFriendsAmount() {
+    function getFriendsAmount()
+    {
         return $this->db->query('SELECT * FROM friends WHERE user = ?', $this->userObject['id'])->numRows();
     }
-    function getFollowers() {
+    function getFollowers()
+    {
         return $this->db->query('SELECT users.* FROM friends , users WHERE friends.friend = ? AND friends.user = users.id', $this->userObject['id'])->fetchAll();
     }
-    function getFollowersAmount() {
+    function getFollowersAmount()
+    {
         return $this->db->query('SELECT * FROM friends WHERE friend = ?', $this->userObject['id'])->numRows();
     }
 }
