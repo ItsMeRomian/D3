@@ -20,7 +20,7 @@ if (empty($_SESSION['auth'])) {
 include_once('templates/post.template.php');
 
 include_once('class/DB.class.php');
-$db = new db('34.76.21.36', 'dg3', 'password', 'dg3');
+$db = new db('dev.dyna.host', 'dg3', 'password', 'dg3');
 
 include_once('class/User.class.php');
 
