@@ -16,6 +16,7 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, 1fr);
     border: 2px solid black;
+    background: lightblue;
 }
 
 nav {
