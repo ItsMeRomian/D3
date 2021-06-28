@@ -1,6 +1,5 @@
 <?php
 include_once('inc/inc.php');
-include_once('class/Menu.class.php');
 
 //Account of the user we're viewing
 $user = new User($_GET['id'], $db);

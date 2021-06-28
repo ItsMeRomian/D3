@@ -1,5 +1,4 @@
 <?php
-include('inc/inc.php');
 class Post
 {
     private  $db;

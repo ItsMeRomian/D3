@@ -18,6 +18,7 @@ if (empty($_SESSION['auth'])) {
     }
 }
 include_once('templates/post.template.php');
+include_once('templates/menu.template.php');
 
 include_once('class/DB.class.php');
 $db = new db('dev.dyna.host', 'dg3', 'password', 'dg3');
@@ -28,3 +29,5 @@ include_once('class/Post.class.php');
 $posts = new Post($db);
 
 include_once('class/Auth.class.php');
+
+echo new MenuTemplate(isset($_SESSION['auth']), $_SESSION['auth']);

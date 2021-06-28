@@ -1,5 +1,4 @@
 <?php
-include('inc/inc.php');
 
 //User class
 class User
