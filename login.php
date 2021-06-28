@@ -18,7 +18,7 @@
 include_once('inc/inc.php');
 
 //Check of je al bent ingelogd, als je dat bent dan ga je naar /index
-if ($_SESSION['auth']) {
+if (isset($_SESSION['auth'])) {
     header('Location: index');
 }
 

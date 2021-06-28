@@ -1,0 +1,30 @@
+header {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  border: 2px solid black;
+  background: lightblue;
+}
+
+nav {
+  display: flex;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+li {
+  padding: 0.5em;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+ul.right {
+  margin-left: auto;
+}

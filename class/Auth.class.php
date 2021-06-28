@@ -8,7 +8,7 @@ class Auth
 
     private $db;
 
-    function __construct($username, $password, $db)
+    function __construct($username = null, $password = null, $db = null)
     {
         echo "AUTH constuct";
         $this->username = $username;
@@ -51,7 +51,7 @@ class Auth
 
     public function logout(): void
     {
-        $_SESSION['auth'] = false;
+        $_SESSION['auth'] = null;
         session_destroy();
     }
 }
