@@ -20,4 +20,23 @@ class Post
     {
         return $this->db->query('SELECT * FROM posts where id = ?', $postId)->fetchArray();
     }
+
+    public function isOwnerOfPost($postId)
+    {
+        $post = $this->db->query('SELECT userId FROM posts where id = ?', $postId)->fetchArray();
+        if ($post['userId'] === $_SESSION['auth']['id']) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function deletePost($postId)
+    {
+        if ($this->db->query('DELETE FROM posts where id = ?', $postId)->affectedRows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
