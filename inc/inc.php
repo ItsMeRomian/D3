@@ -13,9 +13,11 @@ if (!isset($_SESSION)) {
 
 //Als je niet bent ingelogd en je bent niet op /login dan word je daarnatoe geroute.
 if (empty($_SESSION['auth'])) {
-    if (($_SERVER['REQUEST_URI'] !== "/D3/login")) {
+    if (strpos($_SERVER['REQUEST_URI'], "/D3/login")) {
         header('Location: login');
     }
+    // echo "<pre>";
+    // print_r($_SERVER);
 }
 
 //Include alle templates.

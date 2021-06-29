@@ -10,7 +10,6 @@ class Auth
 
     function __construct($username = null, $password = null, $db = null)
     {
-        echo "AUTH constuct";
         $this->username = $username;
         $this->password = $password;
         $this->db = $db;
@@ -24,7 +23,6 @@ class Auth
 
     private function verifyAccount()
     {
-        echo "AUTH verify";
         $check =  $this->db->query('SELECT users.password, users.id FROM users WHERE username = ?', $this->username)->fetchArray();
         //Check of de user in de database staat.
         if (isset($check['password'])) {
@@ -47,6 +45,7 @@ class Auth
         echo "setting logged user";
         $user = new User($userId, $this->db);
         $_SESSION['auth'] = $user->getUserObject();
+        header("Refresh:0");
     }
 
     public function logout(): void

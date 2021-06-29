@@ -1,8 +1,31 @@
+<?php
+include_once('inc/inc.php');
+
+//Tel users, posts en friends relaties om te laten zien.
+$amountUsers = $db->query("SELECT COUNT(id) FROM users")->fetchArray()['COUNT(id)'];
+$amountPosts = $db->query("SELECT COUNT(id) FROM posts")->fetchArray()['COUNT(id)'];
+$amountFriends = $db->query("SELECT COUNT(user) FROM friends")->fetchArray()['COUNT(user)'];
+
+
+//Select een random user om mee in te loggen.
+$randomUsername = $db->query("SELECT username FROM users ORDER BY RAND() LIMIT 1")->fetchArray()['username'];
+
+if (isset($_GET['loggedout'])) {
+    echo "<span style='color:green'>Je bent successvol uitgelogd</span>";
+}
+?>
+
 <body>
     <form action="login.php" method="post">
+        <h1>Welkom op D3</h1>
+        <p>
+            <?= $amountUsers ?> Accounts aangemaakt.<br>
+            <?= $amountPosts ?> Posts aangemaakt.<br>
+            <?= $amountFriends ?> Vrienden aangemaakt.<br>
+        </p>
         <h2>Login</h2>
-        <input type="text" name="username"><br>
-        <input type="password" name="password"><br>
+        <input type="text" name="username" value="<?= $randomUsername ?>"><br>
+        <input type="password" name="password" value="Password"><br>
         <button type="submit" name="submit">Submit</button>
     </form>
 </body>
@@ -15,7 +38,6 @@
     }
 </style>
 <?php
-include_once('inc/inc.php');
 
 //Check of je al bent ingelogd, als je dat bent dan ga je naar /index
 if (isset($_SESSION['auth'])) {
