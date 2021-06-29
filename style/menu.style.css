@@ -3,6 +3,7 @@ header {
   grid-template-columns: repeat(auto-fit, 1fr);
   border: 2px solid black;
   background: lightblue;
+  margin-bottom: 2rem;
 }
 
 nav {

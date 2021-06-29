@@ -34,4 +34,7 @@ $posts = new Post($db);
 include_once('class/Auth.class.php');
 
 //Display menu op elke pagina.
+if (empty($_SESSION['auth'])) {
+    $_SESSION['auth'] = null;
+}
 echo new MenuTemplate(isset($_SESSION['auth']), $_SESSION['auth']);
