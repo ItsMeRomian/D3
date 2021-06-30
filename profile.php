@@ -15,6 +15,7 @@ $friends = $user->getFriends();
 $followersAmount = $user->getFollowersAmount();
 $followers = $user->getFollowers()
 ?>
+<img src="<?= $account['profilepicture'] ?>" class="profilepicture">
 <h1><?= $account['username'] ?></h1>
 <p>
     <?php
