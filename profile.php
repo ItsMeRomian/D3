@@ -1,6 +1,6 @@
 <?php
 include_once('inc/inc.php');
-
+include_once('class/Settings.class.php');
 //Account of the user we're viewing
 $user = new User($_GET['id'], $db);
 $account = $user->getUserObject();

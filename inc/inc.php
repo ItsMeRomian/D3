@@ -34,6 +34,7 @@ include_once('class/User.class.php');
 include_once('class/Post.class.php');
 $posts = new Post($db);
 include_once('class/Auth.class.php');
+include_once('class/Settings.class.php');
 
 //Display menu op elke pagina.
 if (empty($_SESSION['auth'])) {
