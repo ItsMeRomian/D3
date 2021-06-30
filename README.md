@@ -11,7 +11,7 @@ DG3 definitiestudie gemaakt met informatie uit filmpje van Erik Mast
 ## Wat moet kunnen?
 - Berichten zien ✅
 - Berichten posten ✅
-- Fotos kunnen uploaden bij berichten
+- Fotos kunnen uploaden bij berichten ✅
 - Vrienden maken ✅
 - Comments plaatsten (extra idee)
 - Posts kunnen liken (extra idee)
@@ -31,7 +31,7 @@ Hier moet je profielfoto en achtergrondkleur en font kunnen aanpassen.
 - Profielfoto
 - Berichten ✅
 - Vrienden ✅
-- Fotos
+- Fotos ✅
 
 ### Maak vrienden pagina
 Hier zie je vrienden van vrienden die nog niet bevriend zijn met jou. ✅

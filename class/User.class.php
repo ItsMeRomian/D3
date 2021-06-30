@@ -58,4 +58,12 @@ class User
     {
         return $this->db->query("SELECT * FROM friends WHERE user = ? AND friend = ?", $user, $this->userObject['id'])->numRows();
     }
+    function isYou($user)
+    {
+        if ($user === $this->userObject['id']) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

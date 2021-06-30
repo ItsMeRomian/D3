@@ -19,15 +19,19 @@ $followers = $user->getFollowers()
 <p>
     <?php
     //Dit displayed of je de user volgt / of de user jou volgt
-    if ($user->isFriendsWithUser($_SESSION['auth']['id'])) { ?>
-        You are friends with this user. <br>
-    <?php } else { ?>
-        You are not following this user. <a href="profile?id=<?= $_GET['id'] ?>&followUser">Follow user</a><br>
-    <?php }
-    if ($user->followsUser($_SESSION['auth']['id'])) { ?>
-        This user follows you.<br>
-    <?php } else { ?>
-        This user does not follow you.<br>
+    if ($user->isYou($_GET['id'])) {
+        if ($user->isFriendsWithUser($_SESSION['auth']['id'])) { ?>
+            You are friends with this user. <br>
+        <?php } else { ?>
+            You are not following this user. <a href="profile?id=<?= $_GET['id'] ?>&followUser">Follow user</a><br>
+        <?php }
+        if ($user->followsUser($_SESSION['auth']['id'])) { ?>
+            This user follows you.<br>
+        <?php } else { ?>
+            This user does not follow you.<br>
+        <?php }
+    } else { ?>
+        jij bent dit.
     <?php } ?>
 
 </p>
@@ -35,7 +39,7 @@ $followers = $user->getFollowers()
 <p><?= $friendsAmount ?> friends</p>
 <p><?= $followersAmount ?> followers</p>
 
-<p>friends</p>
+<b>friends</b>
 <table>
     <?php foreach ($friends as $friend) { ?>
         <tr>
@@ -45,7 +49,7 @@ $followers = $user->getFollowers()
     <?php } ?>
 </table>
 
-<p>followers</p>
+<b>followers</b>
 <table>
     <?php foreach ($followers as $follower) { ?>
         <tr>
@@ -54,6 +58,12 @@ $followers = $user->getFollowers()
         </tr>
     <?php } ?>
 </table>
+
+<h1>Alle fotos van <?= $account['username'] ?></h1>
+<?php foreach ($userPosts as $post) { ?>
+    <a href="http://localhost/D3/post?id=<?= $post['id'] ?>"><img src="<?= $post['image'] ?>"></a>
+<?php } ?>
+
 
 <h2>Posts by <?= $account['username'] ?></h2>
 <?php
