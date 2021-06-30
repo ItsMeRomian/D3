@@ -24,6 +24,7 @@ class MenuTemplate
                         <li><a href="http://localhost/D3/index">Home</a></li>
                         <li><a href="#">Your Friends</a></li>
                         <li><a href="http://localhost/D3/create">New Post</a></li>
+                        <li><a href="http://localhost/D3/makefriends">Vind nieuwe vrienden</a></li>
                     </ul>
                     <ul class="right">
                         <li><a href="http://localhost/D3/profile?id=<?= $this->user['id'] ?>"><?= $this->user['username'] ?></a></li>

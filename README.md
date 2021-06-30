@@ -6,13 +6,13 @@ DG3 definitiestudie gemaakt met informatie uit filmpje van Erik Mast
 * Home ✅
 * Profiel ✅
 * Post ✅
-* Maak vrienden pagina
+* Maak vrienden pagina ✅
 
 ## Wat moet kunnen?
 - Berichten zien ✅
 - Berichten posten
 - Fotos kunnen uploaden bij berichten
-- Vrienden maken
+- Vrienden maken 
 - Comments plaatsten (extra idee)
 - Posts kunnen liken (extra idee)
 - [x] Als je niet bent ingelogd ga je naar `/login`. Ben je wel ingelogd ga je naar `/index/`. ✅
@@ -34,4 +34,4 @@ Hier moet je profielfoto en achtergrondkleur en font kunnen aanpassen.
 - Fotos
 
 ### Maak vrienden pagina
-Hier zie je vrienden van vrienden die nog niet bevriend zijn met jou.
+Hier zie je vrienden van vrienden die nog niet bevriend zijn met jou. ✅

@@ -23,6 +23,7 @@ if (empty($_SESSION['auth'])) {
 //Include alle templates.
 include_once('templates/post.template.php');
 include_once('templates/menu.template.php');
+include_once('templates/user.template.php');
 
 
 //Include DB en start deze.

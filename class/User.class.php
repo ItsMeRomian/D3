@@ -32,4 +32,18 @@ class User
     {
         return $this->db->query('SELECT * FROM friends WHERE friend = ?', $this->userObject['id'])->numRows();
     }
+    function getFriendsOfFriends()
+    {
+        $friends = $this->getFriends();
+        $friendsOfFriendsArray = array();
+        $friendsOfFriends = array();
+        foreach ($friends as $friend) {
+            array_push($friendsOfFriendsArray, $this->db->query("SELECT users.id FROM users, friends WHERE friends.`user` = ? AND friends.friend = users.id", $friend['id'])->fetchAll());
+        }
+        $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($friendsOfFriendsArray));
+        foreach ($it as $v) {
+            array_push($friendsOfFriends, $v);
+        }
+        return $friendsOfFriends;
+    }
 }
