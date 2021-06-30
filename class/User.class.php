@@ -46,4 +46,16 @@ class User
         }
         return $friendsOfFriends;
     }
+    function followUser($you)
+    {
+        return $this->db->query("INSERT INTO friends (`user`, `friend`, `time`) VALUES (?, ?, ?)", $this->userObject['id'], $you, $this->db->currentTime)->affectedRows();
+    }
+    function isFriendsWithUser($friend)
+    {
+        return $this->db->query("SELECT * FROM friends WHERE user = ? AND friend = ?", $this->userObject['id'], $friend)->numRows();
+    }
+    function followsUser($user)
+    {
+        return $this->db->query("SELECT * FROM friends WHERE user = ? AND friend = ?", $user, $this->userObject['id'])->numRows();
+    }
 }

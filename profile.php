@@ -16,10 +16,26 @@ $followersAmount = $user->getFollowersAmount();
 $followers = $user->getFollowers()
 ?>
 <h1><?= $account['username'] ?></h1>
+<p>
+    <?php
+    //Dit displayed of je de user volgt / of de user jou volgt
+    if ($user->isFriendsWithUser($_SESSION['auth']['id'])) { ?>
+        You are friends with this user. <br>
+    <?php } else { ?>
+        You are not following this user. <a href="profile?id=<?= $_GET['id'] ?>&followUser">Follow user</a><br>
+    <?php }
+    if ($user->followsUser($_SESSION['auth']['id'])) { ?>
+        This user follows you.<br>
+    <?php } else { ?>
+        This user does not follow you.<br>
+    <?php } ?>
+
+</p>
 
 <p><?= $friendsAmount ?> friends</p>
 <p><?= $followersAmount ?> followers</p>
-<p>Your friends</p>
+
+<p>friends</p>
 <table>
     <?php foreach ($friends as $friend) { ?>
         <tr>
@@ -29,7 +45,7 @@ $followers = $user->getFollowers()
     <?php } ?>
 </table>
 
-<p>Your followers</p>
+<p>followers</p>
 <table>
     <?php foreach ($followers as $follower) { ?>
         <tr>
@@ -41,6 +57,16 @@ $followers = $user->getFollowers()
 
 <h2>Posts by <?= $account['username'] ?></h2>
 <?php
+if (isset($_GET['followUser'])) {
+    if (!$user->isFriendsWithUser($_SESSION['auth']['id'])) {
+        if ($user->followUser($_SESSION['auth']['id'])) {
+            echo "<h1 style='color: green'>Je volgt nu deze user</h1>";
+        }
+    } else {
+        echo "<h1 style='color: red'>Je volgt deze user al</h1>";
+    }
+}
+
 foreach ($userPosts as $post) {
     //Haal ook de user object op zodat we bv username kunnen laten zien.
     $userWhoPosted = new User($post['userId'], $db);
