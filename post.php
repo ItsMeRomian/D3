@@ -34,4 +34,5 @@ $likes = $db->query('SELECT * FROM likes WHERE post = ?', $post['id'])->numRows(
 <h1><?= $post['name'] ?></h1>
 <h2>By <a href="profile.php?id=<?= $userObject['id'] ?>"><?= $userObject['username'] ?></a></h2>
 <p><?= $post['body'] ?></p>
+<img src="<?= $post['image'] ?>" style="max-height: 15rem;">
 <p><?= $likes ?> Likes</p>

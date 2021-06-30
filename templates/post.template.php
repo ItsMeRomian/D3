@@ -15,6 +15,7 @@ class PostTemplate
         <div style="border: solid;">
             <h2><a href="post?id=<?= $this->values['id'] ?>"><?= $this->values['name'] ?></a></h2>
             <p>"<?= $this->values['body'] ?>"</p>
+            <img src="<?= $this->values['image'] ?>" style="max-height: 10rem;">
             <p>Post door: <a href="profile?id=<?= $this->values['user']['id'] ?>"><?= $this->values['user']['username'] ?></a></p>
             <p>Gepost op: <?= $this->values['timePosted'] ?></p>
             <!-- <table>
