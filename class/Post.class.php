@@ -9,7 +9,7 @@ class Post
     }
     public function getPostFromFriends($loggedInUserId)
     {
-        return $this->db->query('SELECT posts.* FROM posts, friends WHERE friends.friend = posts.userId AND friends.`user` = ?', $loggedInUserId)->fetchAll();
+        return $this->db->query('SELECT userId, id, name, body, image, timePosted FROM posts, friends WHERE friends.friend = posts.userId AND friends.user = ? GROUP BY userId ORDER BY timePosted', $loggedInUserId)->fetchAll();
     }
 
     public function getPostsFromUser($userId)

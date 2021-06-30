@@ -10,19 +10,19 @@ DG3 definitiestudie gemaakt met informatie uit filmpje van Erik Mast
 
 ## Wat moet kunnen?
 - Berichten zien ✅
-- Berichten posten
+- Berichten posten ✅
 - Fotos kunnen uploaden bij berichten
-- Vrienden maken 
+- Vrienden maken ✅
 - Comments plaatsten (extra idee)
 - Posts kunnen liken (extra idee)
-- [x] Als je niet bent ingelogd ga je naar `/login`. Ben je wel ingelogd ga je naar `/index/`. ✅
+- [x] Als je niet bent ingelogd ga je naar `/login`. Ben je wel ingelogd ga je naar `/index`. ✅
 
 ## Pagina
 ### Login
 Hier moet je kunnen inloggen met Username/password ✅
 
 ### Home
-Hier zie je posts van je vrienden gesorteerd op tijd. 1 post per vriend.
+Hier zie je posts van je vrienden gesorteerd op tijd. 1 post per vriend. ✅
 
 
 ### Profile

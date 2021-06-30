@@ -6,7 +6,7 @@ $posts = $post->getPostFromFriends($_SESSION['auth']['id']);
 
 <h1>Welkom, <a href="profile?id=<?= $_SESSION['auth']['id'] ?>"><?= $_SESSION['auth']['username'] ?></a></h1>
 
-<p>Posts van je vrienden:</p>
+<p>Posts van je vrienden, 1 post per vriend gesorteerd op tijd:</p>
 <?php
 foreach ($posts as $post) {
    //Haal ook de user object op zodat we bv username kunnen laten zien.
