@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="style/main.style.css">
 <link rel="stylesheet" href="style/menu.style.css">
+<link rel="stylesheet" href="style/post.style.css">
 
 <?php
 //Error display aan
@@ -10,14 +11,11 @@ ini_set('display_errors', 'On');
 if (!isset($_SESSION)) {
     session_start();
 }
-
 //Als je niet bent ingelogd en je bent niet op /login dan word je daarnatoe geroute.
 if (empty($_SESSION['auth'])) {
-    if (strpos($_SERVER['REQUEST_URI'], "/D3/login")) {
+    if ($_SERVER['REQUEST_URI'] !== "/D3/login") {
         header('Location: login');
     }
-    // echo "<pre>";
-    // print_r($_SERVER);
 }
 
 //Include alle templates.
@@ -35,7 +33,8 @@ include_once('class/User.class.php');
 include_once('class/Post.class.php');
 $posts = new Post($db);
 include_once('class/Auth.class.php');
-include_once('class/Settings.class.php');
+//include_once('class/Settings.class.php');
+include_once('class/Error.class.php');
 
 //Display menu op elke pagina.
 if (empty($_SESSION['auth'])) {
