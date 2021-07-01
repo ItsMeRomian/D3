@@ -12,22 +12,20 @@ class PostTemplate
         ob_start();
 ?>
 
-        <div style="border: solid;">
-            <h2><a href="post?id=<?= $this->values['id'] ?>"><?= $this->values['name'] ?></a></h2>
-            <p>"<?= $this->values['body'] ?>"</p>
-            <img src="<?= $this->values['image'] ?>" style="max-height: 10rem;">
-            <p>Post door: <a href="profile?id=<?= $this->values['user']['id'] ?>"><?= $this->values['user']['username'] ?></a></p>
-            <p>Gepost op: <?= $this->values['timePosted'] ?></p>
-            <!-- <table>
-                <tr>
-                    <td><?= $this->values['id'] ?></td>
-                    <td><?= $this->values['userId'] ?></td>
-                    <td><?= $this->values['name'] ?></td>
-                    <td><?= $this->values['body'] ?></td>
-                    <td><?= $this->values['image'] ?></td>
-                    <td><?= $this->values['timePosted'] ?></td>
-                </tr>
-            </table> -->
+        <div class="post">
+            <div class="postTitle">
+                <span class="title"><a href="post?id=<?= $this->values['id'] ?>"><?= $this->values['name'] ?></a></span>
+            </div>
+            <div class="postBody">
+                <span>"<?= $this->values['body'] ?>"</span>
+                <div class="postImage">
+                    <img src="<?= $this->values['image'] ?>" style="max-height: 10rem;">
+                </div>
+            </div>
+            <div class="postFooter">
+                <span>Post door: <a href="profile?id=<?= $this->values['user']['id'] ?>"><?= $this->values['user']['username'] ?></a></span>
+                <span>Gepost op: <?= $this->values['timePosted'] ?></span>
+            </div>
         </div>
 <?php
         $content = ob_get_contents();

@@ -11,6 +11,10 @@ html {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
+body {
+  margin: 2rem;
+}
 .btn {
   border: solid;
   padding: 0.5rem;
@@ -22,4 +26,39 @@ html {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  float: left;
+}
+.error {
+  text-align: center;
+  color: red;
+  font-size: 2rem;
+  position: absolute;
+  margin-left: 50%;
+  transform: translate(-50%, 50%);
+  border: solid;
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+.error > .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.tables {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+.followersTable {
+  margin-left: 2rem;
+}
+.friendsTable {
+  margin-left: 2rem;
+}
+
+.profileHeader {
+  height: 7rem;
+}
+.profileHeader > img {
+  margin-right: 1rem;
 }

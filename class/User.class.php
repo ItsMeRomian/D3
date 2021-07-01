@@ -60,7 +60,7 @@ class User
     }
     function isYou($user)
     {
-        if ($user === $this->userObject['id']) {
+        if ($user == $_SESSION['auth']['id']) {
             return true;
         } else {
             return false;
