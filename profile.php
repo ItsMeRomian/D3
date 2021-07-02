@@ -31,6 +31,17 @@ if (isset($account['background'])) { ?>
     </style>
 <?php }
 
+//font getting and setting
+if (isset($account['font'])) { ?>
+    <style>
+        p,
+        h1,
+        h2 {
+            font-family: <?= $account['font'] ?> !important
+        }
+    </style>
+<?php }
+
 //Volger toevoegen
 if (isset($_GET['followUser'])) {
     if (!$user->isFriendsWithUser($_SESSION['auth']['id'])) {

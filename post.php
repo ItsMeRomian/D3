@@ -23,7 +23,7 @@ if ($posts->isOwnerOfPost($_GET['id'])) {
         header("Refresh:0");
     }
 ?>
-    <a class="btn" href="http://localhost/D3/post?id=8&del=1">Delete post</a>
+    <a class="btn" href="http://localhost/D3/post?id=<?= $_GET['id'] ?>&del=1">Delete post</a>
 <?php
 }
 

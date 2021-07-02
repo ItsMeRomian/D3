@@ -22,7 +22,6 @@ class MenuTemplate
                 <nav>
                     <ul>
                         <li><a href="http://localhost/D3/index">Home</a></li>
-                        <li><a href="#">Your Friends</a></li>
                         <li><a href="http://localhost/D3/create">New Post</a></li>
                         <li><a href="http://localhost/D3/makefriends">Vind nieuwe vrienden</a></li>
                     </ul>
