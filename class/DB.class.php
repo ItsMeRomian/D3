@@ -9,13 +9,9 @@ class DB
 	public $query_count = 0;
 	public $currentTime = 0;
 
-<<<<<<< Updated upstream
 	public function __construct($dbhost = 'localhost', $dbuser = 'root', $dbpass = '', $dbname = '', $charset = 'utf8')
 	{
 		$this->currentTime = date('Y-m-d H:i:s');
-=======
-	public function __construct($dbhost = 'localhost', $dbuser = 'root', $dbpass = '', $dbname = 'dg3', $charset = 'utf8') {
->>>>>>> Stashed changes
 		$this->connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 		if ($this->connection->connect_error) {
 			$this->error('Failed to connect to MySQL - ' . $this->connection->connect_error);

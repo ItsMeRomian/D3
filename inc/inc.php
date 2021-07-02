@@ -33,11 +33,9 @@ include_once('class/User.class.php');
 include_once('class/Post.class.php');
 $posts = new Post($db);
 include_once('class/Auth.class.php');
-<<<<<<< Updated upstream
+
 //include_once('class/Settings.class.php');
 include_once('class/Error.class.php');
-=======
->>>>>>> Stashed changes
 
 //Display menu op elke pagina.
 if (empty($_SESSION['auth'])) {
