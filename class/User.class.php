@@ -74,5 +74,10 @@ class User
     {
         return $this->db->query('SELECT background FROM users WHERE user = ?', $this->getUserObject['id'])->numRows();
     }
+
+    function updateUser($username, $profilepicture, $background, $font)
+    {
+        $query = $this->db->query("UPDATE users SET username = ?, profilepicture = ?, background = ?, font = ? WHERE id = ?", $username, $profilepicture, $background, $font, $this->userObject['id']);
+        return $query->affectedRows();
     }
 }

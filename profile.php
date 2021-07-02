@@ -13,6 +13,7 @@ $account = $user->getUserObject();
 
 //Posts of account
 $userPosts = $posts->getPostsFromUser($account['id']);
+
 //Friends data
 $friendsAmount = $user->getFriendsAmount();
 $friends = $user->getFriends();
@@ -21,11 +22,20 @@ $friends = $user->getFriends();
 $followersAmount = $user->getFollowersAmount();
 $followers = $user->getFollowers();
 
+//Background getting and setting
+if (isset($account['background'])) { ?>
+    <style>
+        html {
+            background: <?= $account['background'] ?>
+        }
+    </style>
+<?php }
+
 //Volger toevoegen
 if (isset($_GET['followUser'])) {
     if (!$user->isFriendsWithUser($_SESSION['auth']['id'])) {
         if ($user->followUser($_SESSION['auth']['id'])) {
-            header("http://localhost/D3/profile?id=" + $_GET['id'] + "&followedSuccess");
+            header("http://localhost/D3/profile?id=" . $_GET['id'] . "&followedSuccess");
         }
     } else {
         $error = new ErrorHandler(2, "Je volgt deze user al.");
@@ -52,7 +62,7 @@ if (isset($_GET['followUser'])) {
                 This user does not follow you.<br>
             <?php }
         } else { ?>
-            jij bent dit.
+            jij bent dit. <a href="editprofile.php">Bewerk je profiel hier.</a>
         <?php } ?>
     </p>
 </div>

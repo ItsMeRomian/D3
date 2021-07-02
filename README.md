@@ -26,7 +26,7 @@ Hier zie je posts van je vrienden gesorteerd op tijd. 1 post per vriend. ✅
 
 
 ### Profile
-Hier moet je profielfoto en achtergrondkleur en font kunnen aanpassen.  
+Hier moet je profielfoto en achtergrondkleur en font kunnen aanpassen. ✅
 **Layout van pagina:**
 - Profielfoto ✅
 - Berichten ✅
