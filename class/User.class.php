@@ -32,6 +32,7 @@ class User
     {
         return $this->db->query('SELECT * FROM friends WHERE friend = ?', $this->userObject['id'])->numRows();
     }
+<<<<<<< Updated upstream
     function getFriendsOfFriends()
     {
         $friends = $this->getFriends();
@@ -65,5 +66,14 @@ class User
         } else {
             return false;
         }
+=======
+    function setBackground()
+    {
+        return $this->db->query('SELECT background FROM users WHERE id = ?', $this->userObject['id'])->numRows();
+    }
+    function getBackground()
+    {
+        return this->db->query('SELECT background FROM users WHERE user = ?', $this->getUserObject['id'])->numRows();
+>>>>>>> Stashed changes
     }
 }
