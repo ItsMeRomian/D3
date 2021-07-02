@@ -13,6 +13,9 @@ $randomUsername = $db->query("SELECT username FROM users ORDER BY RAND() LIMIT 1
 if (isset($_GET['loggedout'])) {
     echo "<span style='color:green'>Je bent successvol uitgelogd</span>";
 }
+if (isset($_GET['newUser'])) {
+    echo "<span style='color:green'>Je account is succesvol aangemaakt. je kunt nu inloggen</span>";
+}
 ?>
 
 <body>
@@ -27,6 +30,7 @@ if (isset($_GET['loggedout'])) {
         <input type="text" name="username" value="<?= $randomUsername ?>"><br>
         <input type="password" name="password" value="Password"><br>
         <button type="submit" name="submit">Submit</button>
+        <a href="register">Geen account?</a>
     </form>
 </body>
 <style>

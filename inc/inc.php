@@ -12,9 +12,17 @@ if (!isset($_SESSION)) {
     session_start();
 }
 //Als je niet bent ingelogd en je bent niet op /login dan word je daarnatoe geroute.
+
+//TODO: dit kan korter
 if (empty($_SESSION['auth'])) {
     if ($_SERVER['REQUEST_URI'] !== "/D3/login") {
-        header('Location: login');
+        if ($_SERVER['REQUEST_URI'] !== "/D3/register") {
+            if ($_SERVER['REQUEST_URI'] !== "/D3/login?newUser") {
+                if ($_SERVER['REQUEST_URI'] !== "/D3/login?loggedout") {
+                    header('Location: login');
+                }
+            }
+        }
     }
 }
 
