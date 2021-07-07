@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="style/menu.style.css">
+
 <?php
 
 //Template voor menu. Deze heeft 2 variaties, ingelogd en niet ingelogd.

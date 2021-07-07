@@ -36,25 +36,24 @@ if (isset($_POST['submit'])) {
 
 <body>
     <div class="container">
-        <h1>Maak je profiel</h1>
         <form action="" method="post">
 
-            <label for="username">username</label><br>
+            <label for="username">Username</label><br>
             <input type="text" name="username" id="username"><br>
 
-            <label for="background">background</label><br>
+            <label for="background">Background</label><br>
             <input type="text" name="background" id="background" required><br>
 
-            <label for="profilepicture">profilepicture</label><br>
+            <label for="profilepicture">Profile picture</label><br>
             <input type="text" name="profilepicture" id="profilepicture"><br>
 
-            <label for="font">font</label><br>
+            <label for="font">Font</label><br>
             <input type="text" name="font" id="font"><br>
 
-            <label for="password">wachtwoord</label><br>
+            <label for="password">Wachtwoord</label><br>
             <input type="password" name="password" id="password"><br>
 
-            <label for="password">wachtwoord opnieuw</label><br>
+            <label for="password">wachtwoord bevestiging</label><br>
             <input type="password" name="password2" id="password2"><br>
 
             <input type="submit" value="Submit" name="submit">

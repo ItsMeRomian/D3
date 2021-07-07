@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital@1&display=swap');
+
 table,
 th,
 td {
-  border: 1px solid black;
+  background: #8B9DC3;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+table {
+  border: 2px solid black;
 }
 
 body,
@@ -49,6 +57,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: left;
+  font-family: 'Quattrocento Sans', sans-serif;
 }
 .followersTable {
   margin-left: 2rem;
