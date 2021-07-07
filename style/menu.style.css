@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Kaushan+Script&display=swap');
+
 header {
   display: grid;
   grid-template-columns: repeat(auto-fit, 1fr);
-  border: 2px solid black;
-  background: lightblue;
+  background: #3B5998;
   margin: -2rem;
   margin-bottom: 2rem;
+  box-shadow: 2px 2px #8B9DC3;
 }
 
 nav {
@@ -19,12 +21,23 @@ ul {
 }
 
 li {
-  padding: 0.5em;
+  padding: 0.75em;
+  margin: 0.3em;
 }
 
 nav a {
   text-decoration: none;
   font-size: 20px;
+  color: #FFFFFF;
+  font-family: 'Amatic SC', cursive;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 1.5em;
+}
+
+nav a:hover {
+  color:  #8B9DC3;
+  transition: 2s;
+  transform: scale(5);
 }
 
 ul.right {

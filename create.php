@@ -6,17 +6,16 @@ include_once("inc/inc.php");
     <div class="container">
         <form action="" method="post">
 
-            <label for="name">name</label><br>
+            <label for="name">Name</label><br>
             <input type="text" name="name" id="name" required><br>
 
-            <label for="body">body</label><br>
+            <label for="body">Body</label><br>
             <input type="text" name="body" id="body" required><br>
 
-            <label for="image">image</label><br>
+            <label for="image">Image</label><br>
             <input type="text" name="image" id="image"><br>
 
             <input type="submit" value="Submit">
-
         </form>
     </div>
 </body>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital@1&display=swap');
+
 table,
 th,
 td {
@@ -49,6 +51,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: left;
+  font-family: 'Quattrocento Sans', sans-serif;
 }
 .followersTable {
   margin-left: 2rem;

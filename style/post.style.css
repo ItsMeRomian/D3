@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital@1&display=swap');
+
 .post {
   /* border: solid; */
   /* border-radius: 10px; */
@@ -5,7 +7,10 @@
   /* padding-left: 1rem; */
   /* padding-right: 1rem; */
   color: white !important;
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size: 1.em;
   transition: 0.3s ease;
+  box-shadow: 1px 1px ;
 }
 
 .post:hover {
@@ -13,25 +18,49 @@
 }
 
 .postTitle {
-  background: #515151;
+  background: #3B5998;
   padding: 1rem;
   border-radius: 10px 10px 0px 0px;
 }
 .postBody {
-  border-left: solid lightblue;
-  border-right: solid lightblue;
+  border-left: solid #8B9DC3;
+  border-right: solid #8B9DC3;
   padding: 1rem;
-  background: lightblue;
+  background: #8B9DC3;
   color: black;
 }
 .postFooter {
   border-left: solid lightblue;
   border-right: solid lightblue;
   padding: 1rem;
-  background: #515151;
+  background: #3B5998;
   border-radius: 0px 0px 10px 10px;
 }
 .postTitle > .title > a {
-  color: white;
+  color: #FFFFFF;
   text-decoration: none;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container form {
+  background: #3B5998;
+  padding: 2em;
+  border-radius: 20%;
+  box-shadow: 2px 2px #3B5998;
+  color: #FFFFFF;
+}
+
+.container form input {
+  margin: 1em;
+  font-family: 'Quattrocento Sans', sans-serif;
+  background: #8B9DC3;
+  color: black;
+}
+
+
