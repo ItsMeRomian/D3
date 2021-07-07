@@ -15,23 +15,25 @@ include_once("inc/inc.php");
             <label for="image">Image</label><br>
             <input type="text" name="image" id="image"><br>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" name="submit">
         </form>
     </div>
 </body>
 
 <?php
-if (checkInput($_POST['name']) && checkInput($_POST['body']) && checkInput($_POST['image'])) {
-    $insert =  $db->query(
-        "INSERT INTO posts (`userId`, `name`, `body`, `image`, `timePosted`) VALUES (?, ?, ?, ?, ?)",
-        $_SESSION['auth']['id'],
-        $_POST['name'],
-        $_POST['body'],
-        $_POST['image'],
-        date('Y-m-d H:i:s'),
-    )->lastInsertID();
-    if ($insert) {
-        echo "Success: check hier je  <a href='http://localhost/D3/post?id=" . $insert . "'>post</a>";
+if (isset($_POST['submit'])) {
+    if (checkInput($_POST['name']) && checkInput($_POST['body']) && checkInput($_POST['image'])) {
+        $insert =  $db->query(
+            "INSERT INTO posts (`userId`, `name`, `body`, `image`, `timePosted`) VALUES (?, ?, ?, ?, ?)",
+            $_SESSION['auth']['id'],
+            $_POST['name'],
+            $_POST['body'],
+            $_POST['image'],
+            date('Y-m-d H:i:s'),
+        )->lastInsertID();
+        if ($insert) {
+            echo "Success: check hier je  <a href='http://localhost/D3/post?id=" . $insert . "'>post</a>";
+        }
     }
 }
 
