@@ -13,8 +13,8 @@ DG3 definitiestudie gemaakt met informatie uit filmpje van Erik Mast
 - Berichten posten ✅
 - Fotos kunnen uploaden bij berichten ✅
 - Vrienden maken ✅
-- Comments plaatsten (extra idee)
-- Posts kunnen liken (extra idee)
+- Comments plaatsten (extra idee) ❌
+- Posts kunnen liken (extra idee) ✅
 - [x] Als je niet bent ingelogd ga je naar `/login`. Ben je wel ingelogd ga je naar `/index`. ✅
 
 ## Pagina
