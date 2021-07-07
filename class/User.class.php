@@ -72,12 +72,29 @@ class User
     }
     function getBackground()
     {
-        return $this->db->query('SELECT background FROM users WHERE user = ?', $this->getUserObject['id'])->numRows();
+        return $this->db->query('SELECT background FROM users WHERE user = ?', $this->userObject['id'])->numRows();
     }
 
     function updateUser($username, $profilepicture, $background, $font)
     {
         $query = $this->db->query("UPDATE users SET username = ?, profilepicture = ?, background = ?, font = ? WHERE id = ?", $username, $profilepicture, $background, $font, $this->userObject['id']);
         return $query->affectedRows();
+    }
+    function likePost($postId)
+    {
+        if (!$this->hasLiked($postId)) {
+            $this->db->query("INSERT INTO likes (`post`, `user`, `time`) VALUES (?, ?, ?)", $postId, $this->userObject['id'], $this->db->currentTime)->numRows();
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function hasLiked($postId)
+    {
+        if ($this->db->query('SELECT user FROM likes WHERE post = ? AND user = ?', $postId,  $this->userObject['id'])->numRows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -13,6 +13,19 @@ if (empty($post)) {
 $user = new User($post['userId'], $db);
 $userObject = $user->getUserObject();
 
+//Get your own userObject
+$you = new User($_SESSION['auth']['id'], $db);
+//$yourObject = $you->getUserObject();
+if (isset($_GET['likePost'])) {
+    if ($you->likePost($post['id'])) {
+        header("Location: http://localhost/D3/post?id=" . $_GET['id']);
+    } else {
+        $error = new ErrorHandler(3, "YOu have already liked this post");
+        $error->soft();
+    }
+}
+
+
 
 //Check of je een post van jezelf viewed.
 if ($posts->isOwnerOfPost($_GET['id'])) {
@@ -36,3 +49,8 @@ $likes = $db->query('SELECT * FROM likes WHERE post = ?', $post['id'])->numRows(
 <p><?= $post['body'] ?></p>
 <img src="<?= $post['image'] ?>" style="max-height: 15rem;">
 <p><?= $likes ?> Likes</p>
+<?php if ($you->hasLiked($_GET['id'])) { ?>
+    You have liked this post
+<?php } else { ?>
+    <a href="post?id=<?= $post['id'] ?>&likePost=1">Like post</a>
+<?php } ?>
