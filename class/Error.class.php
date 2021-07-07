@@ -11,6 +11,12 @@ class ErrorHandler
         $this->errorMessage = $errorMessage;
     }
 
+    /**
+     * killing()
+     * Display an error and kill the current execution of a page
+     * 
+     * @return void
+     */
     function killing(): void
     {
         die("
@@ -19,6 +25,14 @@ class ErrorHandler
             $this->errorCode: $this->errorMessage
         </span>");
     }
+
+
+    /**
+     * soft
+     * Display an error without killing the page. 
+     * 
+     * @return void
+     */
     function soft(): void
     {
         echo "

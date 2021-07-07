@@ -8,7 +8,16 @@ class Auth
 
     private $db;
 
-    function __construct($username = null, $password = null, $db = null)
+    /**
+     * __construct()
+     * Handle the user authentication and validation
+     *
+     * @param  string $username
+     * @param  string $password
+     * @param  class $db
+     * @return void
+     */
+    function __construct(string $username, string $password, $db)
     {
         $this->username = $username;
         $this->password = $password;
@@ -21,6 +30,12 @@ class Auth
         }
     }
 
+    /**
+     * verifyAccount()
+     * Verify if a given password matches whats on record.
+     * 
+     * @return bool
+     */
     private function verifyAccount()
     {
         $check =  $this->db->query('SELECT users.password, users.id FROM users WHERE username = ?', $this->username)->fetchArray();
@@ -39,18 +54,18 @@ class Auth
         }
     }
 
-    //Set de User object in session.
+    /**
+     * setLoggedinUser()
+     * Set de User object in session.    
+     * 
+     * @param  int $userId
+     * @return void
+     */
     private function setLoggedinUser($userId)
     {
         echo "setting logged user";
         $user = new User($userId, $this->db);
         $_SESSION['auth'] = $user->getUserObject();
         header("Refresh:0");
-    }
-
-    public function logout(): void
-    {
-        $_SESSION['auth'] = null;
-        session_destroy();
     }
 }

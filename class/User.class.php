@@ -4,35 +4,76 @@
 class User
 {
 
-    private  $userObject;
+    private array $userObject;
     private  $db;
 
-    function __construct($id, $db)
+    function __construct(int $id, $db)
     {
         $this->db = $db;
         $this->userObject = $this->db->query('SELECT * FROM users WHERE id = ?', $id)->fetchArray();
     }
-    function getUserObject()
+    /**
+     * getUserObject
+     * Get an users data
+     * @return array
+     */
+    function getUserObject(): array
     {
         return $this->userObject;
     }
-    function getFriends()
+
+
+    /**
+     * getFriends
+     * Get friends data of an user
+     * 
+     * @return array
+     */
+    function getFriends(): array
     {
         return $this->db->query('SELECT users.*, friends.`user`, friends.friend FROM users , friends WHERE friends.`user` = ? AND friends.friend = users.id ', $this->userObject['id'])->fetchAll();
     }
-    function getFriendsAmount()
+
+
+    /**
+     * getFriendsAmount
+     * Get the amount of friends of an user.
+     * @return int
+     */
+    function getFriendsAmount(): int
     {
         return $this->db->query('SELECT * FROM friends WHERE user = ?', $this->userObject['id'])->numRows();
     }
-    function getFollowers()
+
+
+    /**
+     * getFollowers
+     * Get the data of followers of an user.
+     * @return array
+     */
+    function getFollowers(): array
     {
         return $this->db->query('SELECT users.* FROM friends , users WHERE friends.friend = ? AND friends.user = users.id', $this->userObject['id'])->fetchAll();
     }
-    function getFollowersAmount()
+
+
+    /**
+     * getFollowersAmount
+     * Get the amount of followers of an user.
+     * @return int
+     */
+    function getFollowersAmount(): int
     {
         return $this->db->query('SELECT * FROM friends WHERE friend = ?', $this->userObject['id'])->numRows();
     }
-    function getFriendsOfFriends()
+
+
+    /**
+     * getFriendsOfFriends
+     * Get the friends of friends of an user.
+     * @return array
+     */
+    function getFriendsOfFriends(): array
     {
         $friends = $this->getFriends();
         $friendsOfFriendsArray = array();
@@ -46,41 +87,111 @@ class User
         }
         return $friendsOfFriends;
     }
-    function followUser($you)
+
+
+    /**
+     * followUser
+     * Follow an user
+     * @param  int $you
+     * @return int
+     */
+    function followUser(int $you): int
     {
         return $this->db->query("INSERT INTO friends (`user`, `friend`, `time`) VALUES (?, ?, ?)", $this->userObject['id'], $you, $this->db->currentTime)->affectedRows();
     }
-    function isFriendsWithUser($friend)
+
+
+    /**
+     * isFriendsWithUser
+     * Check if an user is friends with another user.
+     * @param  mixed $friend
+     * @return int
+     */
+    function isFriendsWithUser(int $friend): int
     {
         return $this->db->query("SELECT * FROM friends WHERE user = ? AND friend = ?", $this->userObject['id'], $friend)->numRows();
     }
-    function followsUser($user)
+
+
+    /**
+     * followsUser
+     * Check if an user follows another user.
+     * 
+     * @param  int $user
+     * @return int
+     */
+    function followsUser(int $user): int
     {
         return $this->db->query("SELECT * FROM friends WHERE user = ? AND friend = ?", $user, $this->userObject['id'])->numRows();
     }
-    function isYou($user)
+
+
+    /**
+     * isYou
+     * Check if an user is you.
+     * 
+     * @param  mixed $userId
+     * @return bool
+     */
+    function isYou(int $userId): bool
     {
-        if ($user == $_SESSION['auth']['id']) {
+        if ($userId == $_SESSION['auth']['id']) {
             return true;
         } else {
             return false;
         }
     }
-    function setBackground()
+
+
+    /**
+     * setBackground
+     * Set the background of an user.
+     * 
+     * @return int
+     */
+    function setBackground(): int
     {
         return $this->db->query('SELECT background FROM users WHERE id = ?', $this->userObject['id'])->numRows();
     }
-    function getBackground()
+
+
+    /**
+     * getBackground
+     * Get the current background of an user.
+     * @return int
+     */
+    function getBackground(): int
     {
         return $this->db->query('SELECT background FROM users WHERE user = ?', $this->userObject['id'])->numRows();
     }
 
-    function updateUser($username, $profilepicture, $background, $font)
+
+
+    /**
+     * updateUser
+     * Update an users profile.
+     * 
+     * @param  string $username
+     * @param  string $profilepicture
+     * @param  string $background
+     * @param  string $font
+     * @return int
+     */
+    function updateUser(string $username, string $profilepicture, string $background, string $font): int
     {
         $query = $this->db->query("UPDATE users SET username = ?, profilepicture = ?, background = ?, font = ? WHERE id = ?", $username, $profilepicture, $background, $font, $this->userObject['id']);
         return $query->affectedRows();
     }
-    function likePost($postId)
+
+
+    /**
+     * likePost
+     * Like a post
+     * 
+     * @param  int $postId
+     * @return bool
+     */
+    function likePost(int $postId): bool
     {
         if (!$this->hasLiked($postId)) {
             $this->db->query("INSERT INTO likes (`post`, `user`, `time`) VALUES (?, ?, ?)", $postId, $this->userObject['id'], $this->db->currentTime)->numRows();
@@ -89,7 +200,16 @@ class User
             return false;
         }
     }
-    function hasLiked($postId)
+
+
+    /**
+     * hasLiked
+     * Check if a user already liked an post.
+     * 
+     * @param int $postId
+     * @return bool
+     */
+    function hasLiked(int $postId): bool
     {
         if ($this->db->query('SELECT user FROM likes WHERE post = ? AND user = ?', $postId,  $this->userObject['id'])->numRows() == 1) {
             return true;
