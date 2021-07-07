@@ -72,3 +72,27 @@ body {
 .profileHeader > img {
   margin-right: 1rem;
 }
+
+.searchfriends {
+    display: flex;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  background: #8B9DC3;
+  border-radius: 2em;
+  box-shadow: 2px 2px 2px 2px #3B5998;
+}
+
+.searchfriends h1 a {
+  text-decoration: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #3B5998;
+}
+
+.searchfriends img {
+  padding: 20px;
+}
+
+.searchfriends h1 a:hover {
+  background: #8B9DC3;
+}

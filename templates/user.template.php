@@ -11,7 +11,7 @@ class UserTemplate
     {
         ob_start();
 ?>
-        <div style="border: solid;">
+        <div class="searchfriends">
             <img src="<?= $this->values['profilepicture'] ?>" class="profilepicture">
             <h1><a href="http://localhost/D3/profile?id=<?= $this->values['id'] ?>"><?= $this->values['username'] ?></a></h1>
         </div>
