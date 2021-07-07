@@ -6,7 +6,8 @@ $post = $posts->getPost($_GET['id']);
 
 //Check if the posts exists
 if (empty($post)) {
-    die("post not found!");
+    $error = new ErrorHandler(7, "No post selected.");
+    $error->killing();
 }
 
 //Get the userobject of the user who posted

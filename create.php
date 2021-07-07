@@ -40,13 +40,13 @@ function checkInput($input)
 {
     if (isset($input)) {
         if (strlen($input) > 5) {
-            //Hier kunnnen meer checks als nodig is.
             return $input;
         } else {
-            //hier misschien een error handler?
-            die("Te kort! '$input' is korter dan 5 chars");
+            $error = new ErrorHandler(8, "Te kort! '$input' is korter dan 5 chars");
+            $error->soft();
         }
     } else {
-        die("Geen input binnengekregen.");
+        $error = new ErrorHandler(8, "Geen input binnengekregen.");
+        $error->soft();
     }
 }

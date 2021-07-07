@@ -20,13 +20,16 @@ if (isset($_POST['submit'])) {
                     header("Location: http://localhost/D3/login?newUser");
                 }
             } else {
-                die("Username already in use.");
+                $error = new ErrorHandler(5, "Username already in use. <a href='/D3/register'>retry</a>");
+                $error->killing();
             }
         } else {
-            die("Passwords do not match");
+            $error = new ErrorHandler(5, "Passwords do not match <a href='/D3/register'>retry</a>");
+            $error->killing();
         }
     } else {
-        die("Not all values are here.");
+        $error = new ErrorHandler(5, "Not all values are here. <a href='/D3/register'>retry</a>");
+        $error->killing();
     }
 }
 ?>

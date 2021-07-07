@@ -50,6 +50,5 @@ if (isset($_SESSION['auth'])) {
 
 //Als de form is ingevult starten we Auth()
 if (isset($_POST['password'])) {
-    echo "pass is set";
     $auth = new Auth($_POST['username'], $_POST['password'], $db);
 }
